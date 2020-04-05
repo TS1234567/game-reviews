@@ -23,17 +23,21 @@ class ReviewsController < ApplicationController
   
   def update
     @review = Review.find(params[:id])
-    if @review.update(review_params)
-      redirect_to root_url
-    else
-      render "edit"
+    if current_user == @user
+      if @review.update(review_params)
+        redirect_to root_url
+      else
+        render "edit"
+      end
     end  
   end  
   
   def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    redirect_to root_url
+    if current_user == @user
+      @review = Review.find(params[:id])
+      @review.destroy
+      redirect_to root_url
+    end  
   end  
   
   private
