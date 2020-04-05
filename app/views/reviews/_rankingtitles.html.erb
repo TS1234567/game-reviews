@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ランキング</th>
+      <th>タイトル</th>
+      <th>ポイント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% reviews.each.with_index(1)  do |review,i| %>
+      <tr>
+        <td><%= i %></td>
+        <td><%= review[0].name %></td>
+        <td><%= review[1] %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>

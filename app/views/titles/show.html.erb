@@ -1,0 +1,5 @@
+<% if @title.image? %>
+  <%= image_tag @title.image.thumb.url %>
+<% else %>
+  <%= image_tag "noimage.gif" %>
+<% end %>

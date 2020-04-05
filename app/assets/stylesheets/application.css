@@ -13,3 +13,56 @@
  *= require_tree .
  *= require_self
  */
+ 
+/**
+* Template Name: Siimple - v2.0.1
+* Template URL: https://bootstrapmade.com/free-bootstrap-landing-page/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.table table-bordered {
+  background-color: white;
+}
+
+
+.game-image {
+  min-height: 180px;
+  object-fit: contain;
+}
+
+
+.text-center h1 {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+.jumbotron {
+  background-image: url("/images/game1.jpg");
+  height: 800px;
+  background-size: cover;
+}
+   
+.navbar {
+  margin: 0;
+}
+
+
+
+
+
+

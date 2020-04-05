@@ -1,0 +1,27 @@
+<div class="row row-eq-height">  
+  <% reviews.each do |review| %>
+      <div class="col-sm-4">
+         <div class="card" style="width: 60%" >
+           
+            <% if review.title.image != nil && review.title.image.url != nil %>
+               <%= image_tag review.title.image.url, class:"img-responsive game-image" %>
+            <% else %>
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
+            <% end %>
+            <div class="card-body">
+              <p class="card-text">
+                <ul>
+                  <li>レビュワー<%= review.user.name %></li>
+                  <li>タイトル<%= review.title.name %></li> 
+                  <li>機種<%= review.platform.name %></li>
+                  <li>レビュー内容<%= review.content %></li>
+                  <li>ポイント <%= review.point %></li>
+                  <%= link_to "編集", edit_review_path(review), class:"btn btn-primary" %>
+                  <%= link_to "削除", review_path(review), method: :delete, data: { confirm: "レビューを削除します。よろしいですか？" }, class:"btn btn-primary" %>
+                  <%= render 'favorites/favorite_button', review: review%>
+                </ul>
+            </div>
+         </div>
+      </div>
+  <% end %>
+</div>

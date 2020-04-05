@@ -1,0 +1,39 @@
+
+<% if logged_in? %>
+   <p>ログイン完了ユーザ: <%= current_user.name %></p>
+   <div class="row">
+     <div class="col-12">
+     <%= link_to "新規レビュー", new_review_path , class:"btn btn-primary"%>
+     </div>
+   </div>
+    
+
+   
+   <hr>
+    <div class="row">
+      <div class="col-12">
+    <h2>フォロワーレビュー</h2>
+    <%= render 'reviews/reviews', reviews: @followerreviews %>
+      </div>
+    </div>
+    
+  <hr>
+    <div class="row">
+      <div class="col-12">
+    <h2>ランキング</h2>
+    <%= render 'reviews/rankingtitles', reviews: @rankingtitles %>
+      </div>  
+    </div>
+    
+
+   
+<% else %>
+  <div class="jumbotron">
+      <div class="text-center">
+        <h1>GameReviews</h1>
+        <h2>Welcome to the GameReview</h2>
+      
+      <%= link_to "新規ユーザー登録", signup_path, class:"btn btn-primary" %>
+      </div>
+  </div>  
+<% end %>

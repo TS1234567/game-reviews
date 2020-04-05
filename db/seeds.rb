@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Platform.find_or_create_by(name: 'PS3')
+Platform.find_or_create_by(name: 'PS4')
+Platform.find_or_create_by(name: 'Nintendo Switch')
+
+Title.find_or_create_by(name: 'Ridge Racer')
+Title.find_or_create_by(name: 'pokemon')
+Title.find_or_create_by(name: '太鼓の達人')
+Title.find_or_create_by(name: '大乱闘スマッシュブラザーズ')
+Title.find_or_create_by(name: 'どうぶつの森')
