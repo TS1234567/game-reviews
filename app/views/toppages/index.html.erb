@@ -6,24 +6,29 @@
      <%= link_to "新規レビュー", new_review_path , class:"btn btn-primary"%>
      </div>
    </div>
+   
     
 
    
    <hr>
+   <div class="container">
     <div class="row">
       <div class="col-12">
     <h2>フォロワーレビュー</h2>
     <%= render 'reviews/reviews', reviews: @followerreviews %>
       </div>
     </div>
+    </div>
     
   <hr>
+  <div class="container">
     <div class="row">
       <div class="col-12">
     <h2>ランキング</h2>
     <%= render 'reviews/rankingtitles', reviews: @rankingtitles %>
       </div>  
     </div>
+  </div>  
     
 
    
