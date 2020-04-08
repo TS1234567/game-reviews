@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   def new
     @review = Review.new
   end
@@ -23,28 +24,31 @@ class ReviewsController < ApplicationController
   
   def update
     @review = Review.find(params[:id])
-    if current_user == @user
+    
       if @review.update(review_params)
         redirect_to root_url
       else
         render "edit"
       end
-    end  
   end  
   
   def destroy
-    if current_user == @user
-      @review = Review.find(params[:id])
-      @review.destroy
-      redirect_to root_url
-    end  
-  end  
+    @review.destroy
+    redirect_back(fallback_location: root_path)
+  end
   
   private
   
   def review_params
     params.require(:review).permit(:title_id, :platform_id, :content, :point)
   end
+  
+  def correct_user
+    @review = current_user.reviews.find_by(id: params[:id])
+    unless @review
+      redirect_to root_url
+    end
+  end 
   
     
 end

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :followings, :followers]
-
   def index
     @users = User.all.page(params[:page])
   end
@@ -26,6 +25,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
   
   def followings
     @user = User.find(params[:id])

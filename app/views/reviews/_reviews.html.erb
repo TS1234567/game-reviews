@@ -16,8 +16,10 @@
                   <li>機種<%= review.platform.name %></li>
                   <li>レビュー内容<%= review.content %></li>
                   <li>ポイント <%= review.point %></li>
-                  <%= link_to "編集", edit_review_path(review), class:"btn btn-primary" %>
-                  <%= link_to "削除", review_path(review), method: :delete, data: { confirm: "レビューを削除します。よろしいですか？" }, class:"btn btn-primary" %>
+                  <% if current_user == review.user %>
+                    <%= link_to "編集", edit_review_path(review), class:"btn btn-primary" %>
+                    <%= link_to "削除", review_path(review), method: :delete, data: { confirm: "レビューを削除します。よろしいですか？" }, class:"btn btn-primary" %>
+                  <% end %>
                   <%= render 'favorites/favorite_button', review: review%>
                 </ul>
             </div>
